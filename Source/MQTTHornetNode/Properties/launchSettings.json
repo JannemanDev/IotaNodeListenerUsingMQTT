@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MQTTHornetNode": {
+      "commandName": "Project",
+      "commandLineArgs": "\"settings - Hornet node.json\""
+    }
+  }
+}
