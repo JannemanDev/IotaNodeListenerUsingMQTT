@@ -13,5 +13,15 @@ namespace MQTTClient.Extensions
         {
             return enumeration.Any() ? enumeration.Max(selector) : default(int);
         }
+
+        public static int SumOrDefault<T>(this IEnumerable<T> enumeration, Func<T, int> selector)
+        {
+            return enumeration.Any() ? enumeration.Sum(selector) : default(int);
+        }
+
+        public static long SumOrDefault<T>(this IEnumerable<T> enumeration, Func<T, long> selector)
+        {
+            return enumeration.Any() ? enumeration.Sum(selector) : default(long);
+        }
     }
 }

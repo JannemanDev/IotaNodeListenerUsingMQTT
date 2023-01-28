@@ -1,0 +1,80 @@
+﻿{
+  "Application": {
+    "Name": "[DEV] Shimmer Wallet Watcher",
+    "RunAsService": false,
+    "PrintTxsInfoEveryXMinutes": 1
+  },
+  "IotaNode": {
+    "ApiUrl": "http://shimmer-hornet1.local",
+    "MessagesEndPointPath": "/api/v1/messages/",
+    "UtxoEndPointPath": "/api/v1/outputs/",
+    "TransactionsEndPointPath": "/api/v1/transactions/"
+  },
+  "MonitorWalletAddresses": [
+    {
+      "Enabled": true,
+      "WalletChangeType": "Both",
+      "WalletAddress": "iota1qqkqat7dp0cz0nrgfaxrmmvktwmlw7nnyz4m2f57mphngr0tskfr6dym4wg",
+      "Description": "Bigger than Coinbase",
+      "AmountEqualTo": null,
+      "AmountMinimum": 0,
+      "AmountMaximum": null,
+      "IncludeGroupOrUserKeys": [ "" ],
+      "ExcludeGroupOrUserKeys": [ "" ]
+    }
+  ],
+  "Mqtt": {
+    "Uri": "wss://shimmer-hornet1.boxathome.net:443/mqtt",
+    "SslProtocol": "TLS13",
+    "ClientId": "",
+    "Username": "",
+    "Password": "",
+    "ProtocolVersion": "V311",
+    "UseWebSocket4Net": true,
+    "IgnoreCertificateChainErrors": false,
+    "IgnoreCertificateRevocationErrors": false,
+    "AllowUntrustedCertificates": false,
+    "Topics": [ "milestone-info/confirmed" ],
+    "CleanSession": true,
+    "WebSocketParameters": {
+      "RequestHeaders": {
+        "Key1": "value1",
+        "key2": "value2"
+      },
+      "CookieCollection": [
+        {
+          "Domain": "domain-example.nl",
+          "Name": "name1",
+          "Path": "/",
+          "Value": "value1"
+        }
+      ]
+    }
+  },
+  "PushOver": {
+    "Enabled": true,
+    "EndPoint": "https://api.pushover.net/1/messages.json",
+    "ApiToken": "axn7spr3wbxn9e6wcvcccaet7aja8a",
+    "GroupOrUserKeys": [ "ua47fojvsv9uphahwd7earkyuq35f4" ]
+  },
+  "Logging": {
+    "MonitorLog": {
+      "Path": "Logs/monitorlog.txt"
+    },
+    "TxLog": {
+      "Path": "Logs/txlog.txt"
+    },
+    "MinimumLevel": "Verbose",
+    "File": {
+      "Enabled": true,
+      "Path": "Logs/log.txt",
+      "RollingInterval": "Day",
+      "RollOnFileSizeLimit": true,
+      "RestrictedToMinimumLevel": "Verbose"
+    },
+    "Console": {
+      "Enabled": true,
+      "RestrictedToMinimumLevel": "Information"
+    }
+  }
+}

@@ -1,0 +1,124 @@
+﻿{
+  "Application": {
+    "Name": "[DEV] IOTA Wallet Watcher",
+    "RunAsService": false,
+    "PrintTxsInfoEveryXMinutes": 1
+  },
+  "IotaNode": {
+    "ApiUrl": "https://chrysalis-nodes.iota.org",
+    "MessagesEndPointPath": "/api/v1/messages/",
+    "UtxoEndPointPath": "/api/v1/outputs/",
+    "TransactionsEndPointPath": "/api/v1/transactions/"
+  },
+  "MonitorWalletAddresses": [
+    {
+      "Enabled": true,
+      "WalletChangeType": "Both",
+      "WalletAddress": "iota1qqkqat7dp0cz0nrgfaxrmmvktwmlw7nnyz4m2f57mphngr0tskfr6dym4wg",
+      "Description": "Bigger than Coinbase",
+      "AmountEqualTo": null,
+      "AmountMinimum": 0,
+      "AmountMaximum": null,
+      "IncludeGroupOrUserKeys": [ "" ],
+      "ExcludeGroupOrUserKeys": [ "" ]
+    },
+    {
+      "Enabled": true,
+      "WalletChangeType": "Both",
+      "WalletAddress": "iota1qqkmtzgz0w8vqj5ztv0j84ppmu3qjgpw6zyh67mgy4jnhw7k9x84v7cxlte",
+      "Description": "Binance deposit address",
+      "AmountEqualTo": null,
+      "AmountMinimum": 0,
+      "AmountMaximum": null,
+      "IncludeGroupOrUserKeys": [ "" ],
+      "ExcludeGroupOrUserKeys": [ "" ]
+    },
+    {
+      "Enabled": true,
+      "WalletChangeType": "Both",
+      "WalletAddress": "iota1qqynj4u227rywgtsh06dm4h8n9nvejyy9geffujpg7pzm9exc6usjqw46rj",
+      "Description": "IOTA Telegram Profile - Wallet 1 - Deposit Address 0",
+      "AmountEqualTo": null,
+      "AmountMinimum": 0,
+      "AmountMaximum": null,
+      "IncludeGroupOrUserKeys": [ "" ],
+      "ExcludeGroupOrUserKeys": [ "" ]
+    },
+    {
+      "Enabled": true,
+      "WalletChangeType": "Both",
+      "WalletAddress": "iota1qpejn30fgs3leezdk0qja9qs78c560xcfnclmje3r4exvg5s3594kl3pac5",
+      "Description": "IOTA Telegram Profile - Wallet 2 - Deposit Address 0",
+      "AmountEqualTo": null,
+      "AmountMinimum": 1000000,
+      "AmountMaximum": 2000000,
+      "IncludeGroupOrUserKeys": [ "" ],
+      "ExcludeGroupOrUserKeys": [ "" ]
+    },
+    {
+      "Enabled": false,
+      "WalletChangeType": "Both",
+      "WalletAddress": "iota1qqztds63kwquush6uy4svhj9slvn9j7adt649zz602yt3y7lfyjdyvpxuw9",
+      "Description": "LendeXe",
+      "AmountEqualTo": null,
+      "AmountMinimum": null,
+      "AmountMaximum": null,
+      "IncludeGroupOrUserKeys": [ "" ],
+      "ExcludeGroupOrUserKeys": [ "" ]
+    }
+  ],
+  "Mqtt": {
+    "Uri": "wss://chrysalis-nodes.iota.org:443/mqtt",
+    "SslProtocol": "TLS13",
+    "ClientId": "",
+    "Username": "",
+    "Password": "",
+    "ProtocolVersion": "V311",
+    "UseWebSocket4Net": true,
+    "IgnoreCertificateChainErrors": false,
+    "IgnoreCertificateRevocationErrors": false,
+    "AllowUntrustedCertificates": false,
+    "Topics": [ "milestones/confirmed" ],
+    "CleanSession": true,
+    "WebSocketParameters": {
+      "RequestHeaders": {
+        "Key1": "value1",
+        "key2": "value2"
+      },
+      "CookieCollection": [
+        {
+          "Domain": "domain-example.nl",
+          "Name": "name1",
+          "Path": "/",
+          "Value": "value1"
+        }
+      ]
+    }
+  },
+  "PushOver": {
+    "Enabled": true,
+    "EndPoint": "https://api.pushover.net/1/messages.json",
+    "ApiToken": "axn7spr3wbxn9e6wcvcccaet7aja8a",
+    "GroupOrUserKeys": [ "" ]
+  },
+  "Logging": {
+    "MonitorLog": {
+      "Path": "Logs/monitorlog.txt"
+    },
+    "TxLog": {
+      "Path": "Logs/txlog.txt"
+    },
+    "MinimumLevel": "Verbose",
+    "File": {
+      "Enabled": true,
+      "Path": "Logs/log.txt",
+      "RollingInterval": "Day",
+      "RollOnFileSizeLimit": true,
+      "RestrictedToMinimumLevel": "Verbose"
+    },
+    "Console": {
+      "Enabled": true,
+      "RestrictedToMinimumLevel": "Information"
+    }
+  }
+}

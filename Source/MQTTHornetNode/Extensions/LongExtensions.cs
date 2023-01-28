@@ -9,31 +9,33 @@ namespace MQTTClient.Extensions
 {
     public static class LongExtensions
     {
-        public static string ConvertToBigestUnit2(this long amountIotas, out decimal amount, out string unit)
+        public static string ConvertToBiggestUnit(this long amountIotas, out decimal amount, out string unit)
         {
-            ConvertToBigestUnit(amountIotas, out amount, out unit);
+            _ConvertToBiggestUnit(amountIotas, out amount, out unit);
             string s = $"{amount,6:0.00} {unit}";
             return s;
         }
 
-        private static void ConvertToBigestUnit(decimal amountIotas, out decimal amount, out string unit)
+        private static void _ConvertToBiggestUnit(decimal amountIotas, out decimal amount, out string unit)
         {
-            if (amountIotas >= 1_000_000_000_000)
+            decimal absAmountIotas = Math.Abs(amountIotas);
+
+            if (absAmountIotas >= 1_000_000_000_000)
             {
                 amount = amountIotas / 1_000_000_000_000;
                 unit = "Ti";
             }
-            else if (amountIotas >= 1_000_000_000)
+            else if (absAmountIotas >= 1_000_000_000)
             {
                 amount = amountIotas / 1_000_000_000;
                 unit = "Gi";
             }
-            else if (amountIotas >= 1_000_000)
+            else if (absAmountIotas >= 1_000_000)
             {
                 amount = amountIotas / 1_000_000;
                 unit = "Mi";
             }
-            else if (amountIotas >= 1_000)
+            else if (absAmountIotas >= 1_000)
             {
                 amount = amountIotas / 1_000;
                 unit = "Ki";
@@ -44,6 +46,5 @@ namespace MQTTClient.Extensions
                 unit = "i";
             }
         }
-
     }
 }

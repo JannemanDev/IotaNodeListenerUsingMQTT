@@ -2,7 +2,7 @@
   "profiles": {
     "MQTTHornetNode": {
       "commandName": "Project",
-      "commandLineArgs": "\"settings - Hornet node.json\""
+      "commandLineArgs": "\"settings - Hornet iota node mainnet (dev).json\""
     }
   }
 }

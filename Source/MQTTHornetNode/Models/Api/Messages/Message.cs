@@ -5,14 +5,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MQTTHornetNode.Models
+namespace MQTTHornetNode.Models.Api.Messages
 {
-    public class Transaction
+    public class TransactionMessage
     {
         public string Id { get; set; }
         public Message Message { get; set; }
 
-        public Transaction(string id, Message message)
+        public TransactionMessage(string id, Message message)
         {
             Id = id;
             Message = message;
@@ -33,9 +33,12 @@ namespace MQTTHornetNode.Models
         private Data _message = null; //to support JSON message structure from https://explorer-api.iota.org/search/mainnet/
 
         [JsonIgnore]
-        public Data Data { get { 
+        public Data Data
+        {
+            get
+            {
                 return _data == null ? _message : _data;
-            } 
+            }
         }
 
         public override string ToString()
